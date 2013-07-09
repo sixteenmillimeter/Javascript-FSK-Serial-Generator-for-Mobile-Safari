@@ -1,11 +1,11 @@
 Forked from NeoCat's awesome FSK Serial Generator Script:
-https://github.com/NeoCat/FSK-Serial-Generator-in-JavaScript
+http://github.com/NeoCat/FSK-Serial-Generator-in-JavaScript
 
 Hacked to work on iOS Safari with help from the base64-binary.js library by Danguer:
-https://github.com/danguer/blog-examples
+http://github.com/danguer/blog-examples
 
 And iOS Safari compatable AudioContext code learned here: 
-https://github.com/cteubank/AudioSerial
+http://github.com/cteubank/AudioSerial
 
 Tutorial for using with Arduino to come (promise)
 

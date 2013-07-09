@@ -1,22 +1,29 @@
-function $(name) {
-	return document.getElementById(name);
+var dataURI, audio, myAudioContext, mySource, myBuffer;
+
+if ('AudioContext' in window) {
+	myAudioContext = new AudioContext();
+} else if ('webkitAudioContext' in window) {
+	myAudioContext = new webkitAudioContext();
+} else {
+	alert('Your browser does not support yet Web Audio API');
 }
-function chr8() {
+
+var chr8 = function () {
 	return Array.prototype.map.call(arguments, function(a){
 		return String.fromCharCode(a&0xff)
 	}).join('');
 }
-function chr16() {
+var chr16 = function () {
 	return Array.prototype.map.call(arguments, function(a){
 		return String.fromCharCode(a&0xff, (a>>8)&0xff)
 	}).join('');
 }
-function chr32() {
+var chr32 = function () {
 	return Array.prototype.map.call(arguments, function(a){
 		return String.fromCharCode(a&0xff, (a>>8)&0xff,(a>>16)&0xff, (a>>24)&0xff);
 	}).join('');
 }
-function toUTF8(str) {
+var toUTF8 = function (str) {
 	var utf8 = [];
 	for (var i = 0; i < str.length; i++) {
 		var c = str.charCodeAt(i);
@@ -40,19 +47,8 @@ function toUTF8(str) {
 	return utf8;
 }
 
-
-var dataURI, audio, myAudioContext, mySource, myBuffer;
-
-if ('AudioContext' in window) {
-	myAudioContext = new AudioContext();
-} else if ('webkitAudioContext' in window) {
-	myAudioContext = new webkitAudioContext();
-} else {
-	alert('Your browser does not support yet Web Audio API');
-}
-
-function generate(str) {
-	if (str.length == 0) return;
+var generate = function (str) {
+	if (str.length === 0) return;
 	var utf8 = toUTF8(str);
 	//console.log(utf8);
 	
@@ -69,7 +65,7 @@ function generate(str) {
 			"fmt " + chr32(16, 0x00010001, sampleRate, sampleRate, 0x00080001) +
 			"data" + chr32(size);
 	
-	function pushData(freq, samples) {
+	var pushData = function (freq, samples) {
 		for (var i = 0; i < samples; i++) {
 			var v = 128 + 127 * Math.sin((2 * Math.PI) * (i / sampleRate) * freq);
 			data += chr8(v);
@@ -88,7 +84,7 @@ function generate(str) {
 	dataURI = escape(btoa(data));
 
 	var arrayBuff = Base64Binary.decodeArrayBuffer(dataURI);
-	myAudioContext.decodeAudioData(arrayBuff, function(audioData) {
+	myAudioContext.decodeAudioData(arrayBuff, function (audioData) {
 		myBuffer = audioData;
 	});
 }

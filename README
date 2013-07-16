@@ -7,10 +7,11 @@ http://github.com/danguer/blog-examples
 And iOS Safari compatable AudioContext code learned here: 
 http://github.com/cteubank/AudioSerial
 
-Tutorial for using with Arduino to come (promise)
-
 About SoftModem breakout board for Arduino:
 http://code.google.com/p/arms22/wiki/SoftModemBreakoutBoard
 
-Demo (Thanks rawgithub.com): 
-http://rawgithub.com/sixteenmillimeter/Javascript-FSK-Serial-Generator-for-Mobile-Safari/master/fsk-gen.html
+Demo (Thanks Github pages): 
+http://sixteenmillimeter.github.io/Javascript-FSK-Serial-Generator-for-Mobile-Safari/
+
+Tutorial:
+http://sixteenmillimeter.com/digital-analog-digital-analog/

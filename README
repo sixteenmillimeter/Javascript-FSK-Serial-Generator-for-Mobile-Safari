@@ -15,3 +15,13 @@ http://sixteenmillimeter.github.io/Javascript-FSK-Serial-Generator-for-Mobile-Sa
 
 Tutorial:
 http://sixteenmillimeter.com/digital-analog-digital-analog/
+
+
+Sample Usage:
+
+	<script src="base64-binary.js"></script>
+	<script src="fsk.js"></script>
+	<script>
+		fsk.generate('Hello this is a test string');
+		fsk.play();
+	</script>

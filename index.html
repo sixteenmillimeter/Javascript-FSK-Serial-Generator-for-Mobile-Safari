@@ -12,7 +12,7 @@
 </script>
 </head>
 
-<body onload="generate($('data').value); $('jmp').disabled = false;">
+<body onload="fsk.generate($('data').value); $('jmp').disabled = false;">
 
 <h1>Javascript-FSK-Serial-Generator-for-Mobile-Safari</h1>
 
@@ -32,8 +32,8 @@
 <a href="http://sixteenmillimeter.com/digital-analog-digital-analog/">http://sixteenmillimeter.com/digital-analog-digital-analog/</a>
 
 
-<form onsubmit="play(); return false;">
-Text: <input type="text" id="data" size="40" value="Hello!" onblur="generate(this.value);">
+<form onsubmit="fsk.play(); return false;">
+Text: <input type="text" id="data" size="40" value="Hello!" onblur="fsk.generate(this.value);">
 <input type="submit" value="Play Audio Data">
 <input type="button" value="Go to Audio Data" id="jmp" disabled="true" onclick="location.href='data:audio/wav;base64,' + dataURI;">
 </form>

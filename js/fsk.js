@@ -47,7 +47,9 @@ var toUTF8 = function (str) {
 	return utf8;
 }
 
-var generate = function (str) {
+var fsk = {};
+
+fsk.generate = function (str) {
 	if (str.length === 0) return;
 	var utf8 = toUTF8(str);
 	//console.log(utf8);
@@ -89,7 +91,7 @@ var generate = function (str) {
 	});
 }
 
-var play = function () {
+fsk.play = function () {
 	mySource = myAudioContext.createBufferSource();
 	mySource.buffer = myBuffer;
 	mySource.connect(myAudioContext.destination);
